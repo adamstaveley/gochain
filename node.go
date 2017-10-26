@@ -1,0 +1,3 @@
+package gochain
+
+func init() {}
