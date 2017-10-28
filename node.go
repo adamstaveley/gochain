@@ -1,3 +1,0 @@
-package gochain
-
-func init() {}
