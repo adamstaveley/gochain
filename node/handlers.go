@@ -2,8 +2,8 @@ package node
 
 import (
 	"encoding/json"
-	"github.com/adamstaveley/gochain/blockchain"
 	"fmt"
+	"github.com/adamstaveley/gochain/blockchain"
 	"net/http"
 )
 
@@ -18,9 +18,9 @@ func mine(w http.ResponseWriter, r *http.Request) {
 	proof := blockchain.ProofOfWork(lastProof)
 
 	tx := blockchain.Tx{
-		Sender: "0", 
-		Recipient: nodeIdentifier, 
-		Amount: 1,
+		Sender:    "0",
+		Recipient: nodeIdentifier,
+		Amount:    1,
 	}
 
 	blockchain.NewTransaction(tx)
@@ -29,7 +29,7 @@ func mine(w http.ResponseWriter, r *http.Request) {
 
 	response := mineResponse{
 		Message: "New block forged",
-		Block: block,
+		Block:   block,
 	}
 
 	json.NewEncoder(w).Encode(response) // return JSON object
@@ -50,7 +50,7 @@ func newTx(w http.ResponseWriter, r *http.Request) {
 func chain(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(len(blockchain.Chain))
 	response := chainResponse{
-		Chain: blockchain.Chain,
+		Chain:  blockchain.Chain,
 		Length: len(blockchain.Chain),
 	}
 	fmt.Println(response)
@@ -79,7 +79,7 @@ func registerNode(w http.ResponseWriter, r *http.Request) {
 	}
 
 	response := registerNodeResponse{
-		Message: "New nodes have been added",
+		Message:    "New nodes have been added",
 		TotalNodes: len(blockchain.Nodes),
 	}
 

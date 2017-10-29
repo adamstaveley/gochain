@@ -18,9 +18,9 @@ import (
 var (
 	currentTransactions []Tx
 	// Chain holds all blocks
-	Chain               []Block
+	Chain []Block
 	// Nodes holds all hosts
-	Nodes               []string
+	Nodes []string
 )
 
 // Hash creates SHA-256 with base64 string encoding

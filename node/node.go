@@ -11,7 +11,7 @@ var (
 
 // Init initialises node with desired host and port
 func Init(host string) {
-	createGenesisBlock();
+	createGenesisBlock()
 	nodeIdentifier = uuid.NewV4().String()
 
 	http.HandleFunc("/mine", mine)
@@ -21,4 +21,3 @@ func Init(host string) {
 	http.HandleFunc("/nodes/resolve", resolveNode)
 	http.ListenAndServe(host, nil)
 }
-

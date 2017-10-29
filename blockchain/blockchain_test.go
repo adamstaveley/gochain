@@ -1,8 +1,8 @@
 package blockchain
 
 import (
-	"testing"
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestHash(t *testing.T) {
@@ -15,4 +15,3 @@ func TestHashBlock(t *testing.T) {
 	t.Log("Block should be correctly marshalled")
 	//TODO: generate new block and test its hashing
 }
-

@@ -7,11 +7,11 @@ import (
 type (
 	mineResponse struct {
 		Message string
-		Block blockchain.Block
+		Block   blockchain.Block
 	}
 
 	chainResponse struct {
-		Chain []blockchain.Block
+		Chain  []blockchain.Block
 		Length int
 	}
 
@@ -20,13 +20,12 @@ type (
 	}
 
 	registerNodeResponse struct {
-		Message string
+		Message    string
 		TotalNodes int
 	}
 
 	resolveNodeResponse struct {
 		Message string
-		Chain []blockchain.Block
+		Chain   []blockchain.Block
 	}
-
 )
