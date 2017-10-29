@@ -96,7 +96,7 @@ func resolveNode(w http.ResponseWriter, r *http.Request) {
 	if currentLength < newLength {
 		response.Message = "Chain was replaced"
 	} else {
-		response.Message = "Chain remains authorative"
+		response.Message = "Chain remains authoritative"
 	}
 
 	response.Chain = blockchain.Chain

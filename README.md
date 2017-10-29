@@ -1,4 +1,5 @@
 ### Implementation of [testchain](https://github.com/adamstaveley/testchain) in Go
+[![Go Report Card](https://goreportcard.com/badge/github.com/adamstaveley/gochain)](https://goreportcard.com/report/github.com/adamstaveley/gochain)
 
 Todo:
 - Blockchain unit tests
