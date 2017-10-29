@@ -1,6 +1,17 @@
-### Implementation of testchain in Go
+### Implementation of [testchain](https://github.com/adamstaveley/testchain) in Go
 
 Todo:
-- Write unit tests for blockhain
-- decouple blockchain (types declarations, extract helper functions)
-- write node and tests for it
+- Blockchain unit tests
+- Node integration tests
+
+Run:
+
+```
+go run gochain.go
+```
+
+Options:
+```
+-h string       Specify host of node (default "localhost")
+-p string       Specify port of node (default "8000")
+```
