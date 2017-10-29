@@ -122,8 +122,8 @@ func ResolveConflicts() {
 			var body ChainResponseBody
 			json.Unmarshal(bodyString, body)
 
-			length := body.length
-			chain := body.chain
+			length := body.Length
+			chain := body.Chain
 
 			if length > maxLength && ValidChain(chain) {
 				maxLength = length
@@ -150,7 +150,7 @@ func ValidChain(chain []Block) bool {
 		log.Println(block)
 		log.Println("----------")
 		// check if hash of block is correct
-		if !reflect.DeepEqual(block.previousHash, HashBlock(lastBlock)) {
+		if !reflect.DeepEqual(block.PreviousHash, HashBlock(lastBlock)) {
 			return false
 		}
 		// check if PoW is correct

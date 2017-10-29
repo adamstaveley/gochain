@@ -5,6 +5,6 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-var host string = "localhost:8000"
+var host = "localhost:8000"
 
 

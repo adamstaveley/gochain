@@ -6,13 +6,13 @@ import (
 
 type (
 	mineResponse struct {
-		message string
-		block blockchain.Block
+		Message string
+		Block blockchain.Block
 	}
 
 	chainResponse struct {
-		chain []blockchain.Block
-		length int
+		Chain []blockchain.Block
+		Length int
 	}
 
 	registerNodeRequest struct {
@@ -20,13 +20,13 @@ type (
 	}
 
 	registerNodeResponse struct {
-		message string
-		totalNodes int
+		Message string
+		TotalNodes int
 	}
 
 	resolveNodeResponse struct {
-		message string
-		chain []blockchain.Block
+		Message string
+		Chain []blockchain.Block
 	}
 
 )

@@ -7,6 +7,11 @@ import (
 	"net/http"
 )
 
+func createGenesisBlock() {
+	blockchain.NewBlock(100, "1")
+	fmt.Println(blockchain.Chain)
+}
+
 func mine(w http.ResponseWriter, r *http.Request) {
 	lastBlock := blockchain.LastBlock()
 	lastProof := lastBlock.Proof
@@ -23,8 +28,8 @@ func mine(w http.ResponseWriter, r *http.Request) {
 	block := blockchain.NewBlock(proof, previousHash)
 
 	response := mineResponse{
-		message: "New block forged",
-		block: block,
+		Message: "New block forged",
+		Block: block,
 	}
 
 	json.NewEncoder(w).Encode(response) // return JSON object
@@ -43,10 +48,14 @@ func newTx(w http.ResponseWriter, r *http.Request) {
 }
 
 func chain(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(len(blockchain.Chain))
 	response := chainResponse{
-		chain: blockchain.Chain,
-		length: len(blockchain.Chain),
+		Chain: blockchain.Chain,
+		Length: len(blockchain.Chain),
 	}
+	fmt.Println(response)
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(response)
 }
 
@@ -70,8 +79,8 @@ func registerNode(w http.ResponseWriter, r *http.Request) {
 	}
 
 	response := registerNodeResponse{
-		message: "New nodes have been added",
-		totalNodes: len(blockchain.Nodes),
+		Message: "New nodes have been added",
+		TotalNodes: len(blockchain.Nodes),
 	}
 
 	json.NewEncoder(w).Encode(response)
@@ -85,12 +94,12 @@ func resolveNode(w http.ResponseWriter, r *http.Request) {
 
 	var response resolveNodeResponse
 	if currentLength < newLength {
-		response.message = "Chain was replaced"
+		response.Message = "Chain was replaced"
 	} else {
-		response.message = "Chain remains authorative"
+		response.Message = "Chain remains authorative"
 	}
 
-	response.chain = blockchain.Chain
+	response.Chain = blockchain.Chain
 	json.NewEncoder(w).Encode(response)
 
 }
